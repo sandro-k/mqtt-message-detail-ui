@@ -1,0 +1,33 @@
+{
+    "name": "mqtt-message-detail-ui",
+    "version": "0.0.1",
+    "authors": [
+        "Sandro Kock <sandro.kock@gmail.com>"
+    ],
+    "description": "A polymer element for showing all details of an MQTT-Message",
+    "main": [
+        "mqtt-message-detail-ui.html"
+    ],
+    "keywords": [
+        "mqtt",
+        "polymer",
+        "web-components",
+        "custom-elements",
+        "polymer-elements"
+    ],
+    "license": "MIT",
+    "homepage": "https://github.com/sandro-k/mqtt-message-ui",
+    "ignore": [
+        "**/.*",
+        "node_modules",
+        "bower_components",
+        "style.scss",
+        "test",
+        "tests"
+    ],
+    "dependencies": {
+        "polymer": "~0.3.3",
+        "moment": "~2.7.0",
+        "core-elements": "Polymer/core-elements#~0.3.3"
+    }
+}
