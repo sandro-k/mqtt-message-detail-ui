@@ -24,10 +24,6 @@
   <script>
     Polymer("x-demo", {
 
-      created: function () {
-        console.log("%s Created ", this.element.name);
-
-      },
       ready: function () {
         console.log("%s ready", this.element.name);
         this.message = {
@@ -50,24 +46,6 @@
               ]},
           "timestamp":1407401298587,
           "type":"json"}
-
-      },
-
-      attached: function () {
-        console.log("%s attached", this.element.name);
-      },
-
-      domReady: function() {
-        console.log("%s domReady", this.element.name);
-      },
-
-      detached: function() {
-        console.log("%s detached", this.element.name);
-      },
-
-      attributeChanged: function(attrName, oldVal, newVal) {
-        //var newVal = this.getAttribute(attrName);
-        console.log(attrName, 'old: ' + oldVal, 'new:', newVal);
 
       },
 

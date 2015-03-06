@@ -23,7 +23,12 @@
     "bower_components",
     "style.scss",
     "test",
-    "tests"
+    "tests",
+    "package.json",
+    "Gruntfile.js",
+    "debug.bowerrc",
+    ".gitignore"
+
   ],
   "dependencies": {
     "polymer": "~0.5.5",

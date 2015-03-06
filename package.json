@@ -1,10 +1,10 @@
 {
-  "name": "SsvRtdcConfigApp",
-  "version": "0.0.0",
-  "description": "A small web project to genrate a QR-Code for transmitting the RTDC config to any device via a QR-Code",
-  "author": "Sandro Kock <sko@ssv-embedded.de>",
+  "name": "mqtt-message-detail-ui",
+  "version": "0.0.2",
+  "description": "A polymer element for showing all details of an MQTT-Message",
+  "author": "Sandro Kock <sandro.kock@gmail.com>",
   "license": {
-    "type": "PRIVATE CLOSED SOURCE"
+    "type": "MIT"
   },
   "devDependencies": {
     "grunt": "~0.4.5",

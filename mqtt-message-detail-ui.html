@@ -1,4 +1,3 @@
-<!--polymer-->
 <link rel="import" href="../polymer/polymer.html"/>
 <link rel="import" href="../core-tooltip/core-tooltip.html"/>
 <link rel="import" href="../core-overlay/core-overlay.html"/>
@@ -16,8 +15,9 @@
 
     <link rel="stylesheet" href="../mqtt-lens-style/build/layout.css"/>
     <link rel="stylesheet" href="../mqtt-lens/build/css/main.css"/>
-    <link rel="stylesheet" href="custom.css"/>
+    <link rel="stylesheet" href="mqtt-message-detail-ui.css"/>
     <style>
+
       .badge {
         background: whitesmoke;
         color: #626267;
@@ -54,7 +54,6 @@
           <div class="col-lg-12">
             <h3>Connection Name</h3>
             <span class="label label-primary">{{message.connectionName}}</span>
-
           </div>
         </div>
 
@@ -91,7 +90,6 @@
         </div>
         <div class="message row">
           <div class="col-lg-12">
-
             <h3>Message:</h3>
 
             <!--json message-->
@@ -118,49 +116,21 @@
         'message': {}
       },
 
-      observe: {
-
-      },
 
       targetListeners: {
         'tap': 'tapHandler',
-        'keydown': 'keydownHandler',
+        'keydown': 'keydownHandler'
       },
 
       created: function () {
-        console.log("%s Created ", this.element.name);
         this.message = {};
       },
       ready: function () {
-        console.log("%s ready", this.element.name);
         this.addElementListenerList(this.$.wrapper, this.targetListeners);
       },
 
       registerCallback: function(element) {
         this.keyHelper = document.createElement('core-key-helper');
-      },
-
-      attached: function () {
-        console.log("%s attached", this.element.name);
-      },
-
-      domReady: function () {
-        console.log("%s domReady", this.element.name);
-      },
-
-      detached: function () {
-        console.log("%s detached", this.element.name);
-      },
-
-      attributeChanged: function (attrName, oldVal, newVal) {
-
-        //var newVal = this.getAttribute(attrName);
-        console.log(attrName, 'old: ' + oldVal, 'new:', newVal);
-
-      },
-
-      messageChanged: function () {
-        console.log(this.message);
       },
 
       /**
@@ -179,9 +149,7 @@
        * Event Handler
        *
        */
-
       keydownHandler: function(e) {
-        console.log("keydownHandler");
         if (e.keyCode == this.keyHelper.ESCAPE_KEY) {
           this.close();
           e.stopPropagation();
@@ -193,7 +161,6 @@
        * Element functions
        * #############
        */
-
       toggle: function () {
         this.$.overlay.toggle();
       },
@@ -203,7 +170,6 @@
        * Helper functions
        * #############
        */
-
       addElementListenerList: function(node, events) {
         for (var i in events) {
           this.addElementListener(node, i, events[i]);
@@ -238,6 +204,7 @@
       moment: function (value) {
         return moment(value).format('h:mm:ss');
       },
+
       qosFormat: function (value) {
         switch (value) {
           case 0:

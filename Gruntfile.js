@@ -6,7 +6,7 @@ module.exports = function (grunt) {
         watch: {
             // watch for SCSS files and compile to css
             sass: {
-                files: ['style/*.scss'],
+                files: ['*.scss'],
                 tasks: ['sass'],
                 options: {
                     // use live reload that is build in with grunt watch and use default port
@@ -14,7 +14,7 @@ module.exports = function (grunt) {
                 }
             },
             html: {
-                files: ['index.html'],
+                files: ['index.html', 'demo.html', 'mqtt-message-detail-ui.html'],
                 options: {
                     // use live reload that is build in with grunt watch and use default port
                     livereload: true
@@ -24,12 +24,10 @@ module.exports = function (grunt) {
         sass: {
             dist: {
                 files: {
-                    'build/css/main.css': 'style/main.scss',
-                    'build/css/element.css': 'style/element.scss'
+                    'mqtt-message-detail-ui.css': 'mqtt-message-detail-ui.scss'
                 }
             }
         },
-
         connect: {
             server: {
                 options: {
@@ -38,18 +36,12 @@ module.exports = function (grunt) {
                 }
             }
         }
-
-
     });
-
-
-    // a task that creates the initial folder structure and copies some dependencies
-    grunt.registerTask('init');
 
     // a task that builds the overall app
     grunt.registerTask('build');
 
-    grunt.registerTask('srv', ['connect', 'watch']);
+    grunt.registerTask('srv', ['build', 'connect', 'watch']);
 
     // load sass
     grunt.loadNpmTasks('grunt-contrib-sass');
@@ -59,7 +51,6 @@ module.exports = function (grunt) {
 
     // connect
     grunt.loadNpmTasks('grunt-contrib-connect');
-
 
     // Default task(s).
     grunt.registerTask('default', ['build']);
