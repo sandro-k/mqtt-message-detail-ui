@@ -1,3 +1,11 @@
+@import "../../css/layout";
+// TODO(sandro-k) remove this undefined dependency
+
+button {
+  color: #000000;
+}
+
+
 .page-header {
   margin: 0 0 20px 0;
 }
