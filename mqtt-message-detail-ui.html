@@ -13,10 +13,9 @@
   <template>
 
     <!--todo(sandro-k) need to extract styles to other elements-->
-
-    <link rel="stylesheet" href="../mqtt-lens-style/build/layout.css"/>
-    <link rel="stylesheet" href="../mqtt-lens/build/css/main.css"/>
-    <link rel="stylesheet" href="custom.css"/>
+    <link rel="stylesheet" href="../mqtt-lens-style/mqtt-lens-style.css"/>
+    <link rel="stylesheet" href="../mqtt-lens/mqtt-lens.css"/>
+    <link rel="stylesheet" href="mqtt-message-detail-ui.css"/>
     <style>
       .badge {
         background: whitesmoke;
@@ -41,10 +40,7 @@
         <h2 class="modal-title">Message details</h2>
       </div>
 
-      <div class="row" style="
-    height: 3px;
-    background: #443685;
-    border-bottom: 1px dotted #FFFFFF;"></div>
+      <div class="row" style="height: 3px;background: #443685;border-bottom: 1px dotted #FFFFFF;"></div>
       <div class="row paper-shadow-bottom-z-3" style="
     height: 3px; background: #443685;
     box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.46);"></div>
@@ -96,8 +92,7 @@
 
             <!--json message-->
             <template if="{{ message.type == 'json'}}">
-              <code-pretty lang="json" text="{{message.payload}}">
-              </code-pretty>
+              <code-pretty lang="json" text="{{message.payload}}"></code-pretty>
             </template>
 
             <!--plain message-->
@@ -118,21 +113,15 @@
         'message': {}
       },
 
-      observe: {
-
-      },
-
       targetListeners: {
         'tap': 'tapHandler',
-        'keydown': 'keydownHandler',
+        'keydown': 'keydownHandler'
       },
 
       created: function () {
-        console.log("%s Created ", this.element.name);
         this.message = {};
       },
       ready: function () {
-        console.log("%s ready", this.element.name);
         this.addElementListenerList(this.$.wrapper, this.targetListeners);
       },
 
@@ -140,46 +129,15 @@
         this.keyHelper = document.createElement('core-key-helper');
       },
 
-      attached: function () {
-        console.log("%s attached", this.element.name);
-      },
-
-      domReady: function () {
-        console.log("%s domReady", this.element.name);
-      },
-
-      detached: function () {
-        console.log("%s detached", this.element.name);
-      },
-
-      attributeChanged: function (attrName, oldVal, newVal) {
-
-        //var newVal = this.getAttribute(attrName);
-        console.log(attrName, 'old: ' + oldVal, 'new:', newVal);
-
-      },
-
-      messageChanged: function () {
-        console.log(this.message);
-      },
-
-      /**
-       *
-       * on-* handler
-       *
-       */
-
       close: function () {
         this.$.overlay.toggle();
       },
-
 
       /**
        *
        * Event Handler
        *
        */
-
       keydownHandler: function(e) {
         console.log("keydownHandler");
         if (e.keyCode == this.keyHelper.ESCAPE_KEY) {
