@@ -1,6 +1,6 @@
 {
   "name": "mqtt-message-detail-ui",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "authors": [
     "Sandro Kock <sandro.kock@gmail.com>"
   ],
@@ -31,9 +31,9 @@
 
   ],
   "dependencies": {
-    "polymer": "~0.5.5",
+    "polymer": "Polymer/polymer#~0.5.5",
     "moment": "~2.9.0",
     "core-elements": "Polymer/core-elements#~0.5.5",
-    "mqtt-lens-style": "sandro-k/mqtt-lens-style#master"
+    "mqtt-lens-style": "sandro-k/mqtt-lens-style#~0.0.3"
   }
 }
