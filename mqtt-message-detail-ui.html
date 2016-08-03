@@ -4,6 +4,7 @@
 <link rel="import" href="../core-overlay/core-overlay.html"/>
 <link rel="import" href="../code-pretty/code-pretty.html"/>
 <link rel="import" href="../core-overlay/core-key-helper.html">
+<link rel="import" href="../core-icon/core-icon.html">
 
 
 <script src="../moment/min/moment.min.js"></script>
@@ -36,7 +37,9 @@
 
     <div id="wrapper">
       <div class="modal-header">
-        <button type="button" class="close" on-click="{{close}}">x</button>
+        <button type="button" class="close" on-click="{{close}}">
+          <core-icon icon="close"></core-icon>
+        </button>
         <h2 class="modal-title">Message details</h2>
       </div>
 
